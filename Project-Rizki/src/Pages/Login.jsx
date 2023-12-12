@@ -6,9 +6,37 @@ import {
   Link,
 } from "react-router-dom";
 
+import axios from "axios";
+import { useState } from "react";
+import { NavbarHome } from "../components/NavbarHome";
+
 export function Login() {
+  // let [userInput, setUserInput] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  // hendleInput = (event) => {
+  //   let { dataInput, value } = event.target;
+  //   console.log(dataInput, value);
+  //   setUserInput({
+  //     ...userInput,
+  //     [dataInput]: value,
+  //   });
+  // };
+
+  // const hendleLogin = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const data = await axios({
+  //       method : "post",
+  //       url:
+  //     })
+  //   } catch (error) {}
+  // };
   return (
     <>
+      <NavbarHome />
       <form className="max-w-sm mx-auto my-middle">
         <div className="mb-5">
           <label

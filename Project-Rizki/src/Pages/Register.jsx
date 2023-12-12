@@ -5,11 +5,15 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import { NavbarHome } from "../components/NavbarHome";
 
-{/* <Link to="/login">Login</Link>; */}
+{
+  /* <Link to="/login">Login</Link>; */
+}
 export function Register() {
   return (
     <>
+      <NavbarHome />
       <form className="max-w-sm mx-auto">
         <div className="mb-5">
           <label

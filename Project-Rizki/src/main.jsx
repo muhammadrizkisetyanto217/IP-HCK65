@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+//import "./index.css";
+import "./index.css";
 
 // import * as React from "react";
 import { createRoot } from "react-dom/client";
@@ -10,20 +12,29 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import { NavbarRegister } from "../components/NavbarRegister.jsx";
-import { Register } from "../Pages/Register.jsx";
-import { NavbarLogin } from "../components/NacbarLogin.jsx";
-import { Login } from "../Pages/Login.jsx";
+
+import { Register } from "./Pages/Register.jsx";
+import { Home } from "./Pages/Home.jsx";
+import { Login } from "./Pages/Login.jsx";
+import { Header } from "./components/Header.jsx";
+import { ProductList } from "./features/productList/ProductList.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/register",
     element: (
       <>
-        {/* <NavbarRegister />
-        <Register />, */}
-        <NavbarRegister />
         <Register />
+      </>
+    ),
+  },
+  {
+    path: "/",
+    element: (
+      <>
+        <Header />
+        {/* <Home /> */}
+        <ProductList />
       </>
     ),
   },
@@ -31,7 +42,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <>
-        <NavbarLogin />
         <Login />
       </>
     ),
