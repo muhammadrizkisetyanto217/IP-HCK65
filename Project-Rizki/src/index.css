@@ -9,7 +9,7 @@
 
 #root {
   /*Digunakan untuk mengatur css pakai @apply */
-  @apply bg-sky-800;
+  @apply bg-green-200;
   /* Digubakan untuk mengatur tinggi */
   min-height: 100vh;
   /** Supaya tidak geser kiri kanan  */
