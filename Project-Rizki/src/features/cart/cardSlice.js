@@ -28,15 +28,45 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState,
     //* Value dan key nya sama "initialState" bisa ditulis satu
+
+    //? Validasi banyak akan ditempatkan di reducer 
     reducers: {
         //* Buat fungsi menambahkan item ke cart
         //? state disini sama fungsinya seperti useState yaitu sebagai penampung
         addItemToCart: (state, action) => {
             //? Setelah data masuk makan tugas redux sudah selesai. 
-            // console.log("Data masuk selanjutnya di cardSlice");
-            console.log(action.payload);
-            // console.log(state);
-            // document.writeln("tes")
+
+            //console.log(action, "action");
+            //* Isi action salah satunya adalah payload dan type 
+
+            //? Data dipush ke state cardItems 
+            const newItem = action.payload
+            //state.cartItems.push(newItem)
+
+            //! Product sebelumnya dibandingkan dengan product baru 
+            //* Product yang baru udah ada atau belum
+            //console.log(state.cartItems);
+            const selectCartIndex = state.cartItems.findIndex(product => product.id === newItem.id)
+            // //console.log(selectCartIndex);
+
+            //* Kalau datanya sudah ada masuk ke if 
+            if (selectCartIndex !== -1) {
+                selectCartIndex < 0
+                state.cartItems[selectCartIndex].quantity += 1
+                state.cartItems[selectCartIndex].totalPrice = state.cartItems[selectCartIndex].quantity * state.cartItems[selectCartIndex].price
+                //* Apabila datanya sudah ada 
+            } else {
+                state.cartItems.push({
+                    ...newItem,
+                    quantity: 1, //Menambah key baru
+                    totalPrice: newItem.price
+                })
+            }
+            //console.log(action.payload, "action payload");
+            // console.log(newItem);
+            // console.log(state.cartItems);
+
+
         },
         // removeItemFromCart: () => {
 
@@ -49,3 +79,12 @@ export const cartSlice = createSlice({
 export const { addItemToCart } = cartSlice.actions
 
 export default cartSlice
+
+//? Selector
+//* Jika mau ditampilkan jumlah jenis barang yang dipilih pakai .length
+export const selectCartItems = state => state.cart.cartItems
+
+//* Jika mau menampilkan total jumlah keseluruh barang
+export const selectCartTotalItems = state => state.cart.cartItems.reduce((total, item) => total + item.quantity, 0)
+
+export const selectCartTotalPrices = state => state.cart.cartItems.reduce((total, item) => total + item.price, 0)

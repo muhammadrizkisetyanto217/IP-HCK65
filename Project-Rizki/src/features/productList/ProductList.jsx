@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { addItemToCart } from "../cart/cardSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, selectCartItems } from "../cart/cardSlice";
 
 export function ProductList() {
   //* Local state
@@ -14,9 +14,16 @@ export function ProductList() {
   const [isLoading, setLoading] = useState(false);
 
   //? Panggil dispatch
-  //? Dispatch adalah kendaraan actions
+  //? useDispatch adalah kendaraan actions dari component ke store
+  //? useSelector adalah kendaraan actions dari store ke component
+
   //?const hendleClickBuy kurirnya
   const dispatch = useDispatch();
+
+  //?useSelector memanggil cardSlide
+  //?effectnya tiap kali klik button maka akan menambahkan item
+  // const cartItem = useSelector((selectCartItems));
+  // console.log(cartItem);
 
   //* Fatching data async karena tergantung respon server
   useEffect(() => {
@@ -47,20 +54,20 @@ export function ProductList() {
   };
 
   return (
-    <div className="w-full h-full grid grid-cols-2 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-1 px-1">
+    <div className="container mx-auto w-full h-full grid grid-cols-2 gap-1 sm:gap-2 md:gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-1 px-1 mt-5 ">
       {/* w-full dan h-full artinya card akan memenuhi container */}
       {/* grid grid-cols-1 adalah standard. grid-cols-1/2 untuk ukuran terkecil mulai dari mana*/}
       {products.map((product) => {
         return (
           <div
             key={product.id}
-            className="bg-white rounded-xl border border-blue-300 shadow w-full p-0 hover:scale-105 transition-scale duration-500 ease-in-out "
+            className="bg-white rounded-xl border border-blue-300 shadow w-full p-0"
           >
             {/* Card disatukan dalam group. Tanpa group gambar tidak bisa di hover */}
             {/* dikasih mx-auto karena w-80%. Tanpa ini maka gambar akan condong kekiri */}
             {/* overflow hidden berfungsi supaya hover img tidak keluar dari batas. overflow visible supaya gambar kurang */}
             {/* group akan dikirimkan/dipakai juga di className img */}
-            <div className="group relative w-[80%] h-[250px] mx-auto overflow-visible">
+            <div className="group relative w-[80%] h-[250px] mx-auto overflow-hidden">
               <img
                 src={product.image}
                 alt={product.title}

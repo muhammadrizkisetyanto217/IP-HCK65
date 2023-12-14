@@ -25,3 +25,11 @@
 
 <!--? DataSlice  -->
 <!--* Data slice akan diterima dari productList  -->
+
+
+
+<!--! MODAL  -->
+<!--* 1. Modal  -->
+<!--* 2. App.js  -->
+<!--* 3. Index HTML tambahkan id "modal"  -->
+<!--* 4. Card Modal Tahap Terakhir -->
