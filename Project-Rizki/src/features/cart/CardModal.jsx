@@ -15,7 +15,7 @@ const CartModal = ({ handleHideModalCart }) => {
   const handleCheckoutToWhatsapp = () => {
     if (totalItems === 0) return;
 
-    const phoneNumber = "6281285241889";
+    const phoneNumber = "6285155110554";
     const message = encodeURIComponent(
       `Halo, saya ingin membeli ${totalItems} barang dengan total harga ${totalPrice}`
     );

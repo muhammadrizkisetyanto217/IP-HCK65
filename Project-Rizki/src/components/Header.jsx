@@ -24,7 +24,7 @@ export function Header({ handleOpenModalCart }) {
           {/* h-20 = 5 rem */}
           {/* flex yang membuat content mengisi semua sisi kiri kanan  */}
           <div className="flex items-center justify-between h-20">
-            <h1 className="text-3xl font-bold text-gray-100">Rizki Book </h1>
+            <h1 className="text-3xl font-bold text-gray-100">Rizki Store</h1>
             <div className="justify-between">
               <button
                 type="button"
@@ -59,3 +59,5 @@ export function Header({ handleOpenModalCart }) {
     </>
   );
 }
+
+
